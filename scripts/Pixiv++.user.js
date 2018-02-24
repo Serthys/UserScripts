@@ -454,7 +454,11 @@ Close to being a major release due to the amount of changes done.
 
                metadata.userID = context.userId; //el.parentElement.href.match(/member\.php\?id=(\d+)/i)[1];
                metadata.userName = context.userName; //el.nextElementSibling.textContent;
-               metadata.account = doc.querySelector(".tab-feed").href.replace(/.+\/stacc\//, "");
+               var tabFeed = doc.querySelector(".tab-feed");
+               if(tabFeed)
+               {
+                   metadata.account = tabFeed.href.replace(/.+\/stacc\//, "");
+               }
                el = doc.querySelector(".user-image");
                if (el)
                {
